@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learnify - Online Learning Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .quiz {
+      margin-top: 20px;
+    }
+    .quiz p {
+      font-size: 18px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .progress {
+      margin-top: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 20px;
+      background: #4CAF50;
+      width: 0%;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Learnify</h1>
+
+    <video controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="quiz">
+      <h2>Quiz</h2>
+      <p>What is the capital of France?</p>
+      <button onclick="checkAnswer('Paris')">Paris</button>
+      <button onclick="checkAnswer('London')">London</button>
+      <button onclick="checkAnswer('Rome')">Rome</button>
+      <p id="result"></p>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progress-bar">0%</div>
+    </div>
+  </div>
+
+  <script>
+    let progress = 0;
+    function checkAnswer(answer) {
+      const result = document.getElementById('result');
+      if (answer === 'Paris') {
+        result.textContent = '✅ Correct!';
+        updateProgress(100);
+      } else {
+        result.textContent = '❌ Try Again';
+      }
+    }
+
+    function updateProgress(value) {
+      const bar = document.getElementById('progress-bar');
+      bar.style.width = value + '%';
+      bar.textContent = value + '%';
+    }
+  </script>
+</body>
+</html>
